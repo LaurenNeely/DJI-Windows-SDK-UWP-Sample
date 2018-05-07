@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Include">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Impl">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\djivideoparser.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\h264_Decoder.h">
+      <Filter>Impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\modulemediator.h">
+      <Filter>Impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\Queue.h">
+      <Filter>Impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\threadsafequeue.h">
+      <Filter>Impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\Utils.h">
+      <Filter>Impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\videoparser.h">
+      <Filter>Impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\videoparsermgr.h">
+      <Filter>Impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\VideoWrapper.h">
+      <Filter>Impl</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="impl\djivideoparser.cpp">
+      <Filter>Impl</Filter>
+    </ClCompile>
+    <ClCompile Include="impl\h264_Decoder.cpp">
+      <Filter>Impl</Filter>
+    </ClCompile>
+    <ClCompile Include="impl\modulemediator.cpp">
+      <Filter>Impl</Filter>
+    </ClCompile>
+    <ClCompile Include="impl\Queue.cpp">
+      <Filter>Impl</Filter>
+    </ClCompile>
+    <ClCompile Include="impl\Utils.cpp">
+      <Filter>Impl</Filter>
+    </ClCompile>
+    <ClCompile Include="impl\videoparser.cpp">
+      <Filter>Impl</Filter>
+    </ClCompile>
+    <ClCompile Include="impl\videoparsermgr.cpp">
+      <Filter>Impl</Filter>
+    </ClCompile>
+    <ClCompile Include="impl\VideoWrapper.cpp">
+      <Filter>Impl</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

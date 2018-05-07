@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
+    <UseEmulator>false</UseEmulator>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ProjectView>ProjectFiles</ProjectView>
+    <AppxPackageIsForStore>False</AppxPackageIsForStore>
+    <AppxShowAllApps>False</AppxShowAllApps>
+    <AppxBuildConfigurationSelection>x86</AppxBuildConfigurationSelection>
+    <PackageOptionalProjectsInIdeBuilds>True</PackageOptionalProjectsInIdeBuilds>
+    <Source>C:\Users\vladi\Documents\PAX_MR\WinDrone\_RawAssets\LogoWithPadding_winWhite.png</Source>
+    <SmallTileSource>C:\Users\vladi\Documents\PAX_MR\WinDrone\_RawAssets\LogoWithPadding_winWhite.png</SmallTileSource>
+    <MediumTileSource>C:\Users\vladi\Documents\PAX_MR\WinDrone\_RawAssets\LogoWithPadding_winWhite.png</MediumTileSource>
+    <WideTileSource>C:\Users\vladi\Documents\PAX_MR\WinDrone\_RawAssets\LogoWithPadding_winWhite.png</WideTileSource>
+    <LargeTileSource>C:\Users\vladi\Documents\PAX_MR\WinDrone\_RawAssets\LogoWithPadding_winWhite.png</LargeTileSource>
+    <AppIconSource>C:\Users\vladi\Documents\PAX_MR\WinDrone\_RawAssets\LogoWithPadding_winWhite.png</AppIconSource>
+    <SplashScreenSource>C:\Users\vladi\Documents\PAX_MR\WinDrone\_RawAssets\LogoWithPadding_winWhite.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\vladi\Documents\PAX_MR\WinDrone\_RawAssets\LogoWithPadding_winWhite.png</PackageLogoSource>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
+  </PropertyGroup>
+</Project>

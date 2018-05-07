@@ -1,0 +1,16 @@
+LIBRARY
+
+EXPORTS
+InitializeDJISDK
+UninitializeDJISDK
+IsDJISDKReady
+IsFlying
+GetAltitude
+GetAttitude
+GetVelocity
+SetJoyStickValue
+MoveGimbleValue
+SetGimbleAngle
+SetVideoFrameBufferCallback
+SetVideoFrameDataCallback
+UninitializeVideoCallbacks

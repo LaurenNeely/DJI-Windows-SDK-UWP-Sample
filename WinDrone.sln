@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DJIVideoParser", "DJIVideoParser\DJIVideoParser.vcxproj", "{8DA43E0C-A205-41FE-A35D-6C8DCB783563}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DJIUWPDemo", "DJIUWPDemo\DJIUWPDemo.csproj", "{5C822A6E-1A26-4967-A517-72A6452B1642}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AB378D3C-2BB1-41E8-9EF9-BEFED238F705} = {AB378D3C-2BB1-41E8-9EF9-BEFED238F705}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DJIClient", "DJIClient", "{8650FA60-C52D-4782-909C-445F08C472D3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DJIClient", "DJIClient\DJIClient\DJIClient.vcxitems", "{5E9BD91D-BC69-401C-BA44-AF43289990DA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DJIClient.Win32", "DJIClient\DJIClient.Win32\DJIClient.Win32.vcxproj", "{AB378D3C-2BB1-41E8-9EF9-BEFED238F705}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DJISDK", "DJISDK\DJISDK.vcxitems", "{9E4B60B8-52F7-4641-9008-5B8F4C0DBAA1}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		DJIClient\DJIClient\DJIClient.vcxitems*{5e9bd91d-bc69-401c-ba44-af43289990da}*SharedItemsImports = 9
+		DJISDK\DJISDK.vcxitems*{9e4b60b8-52f7-4641-9008-5b8f4c0dbaa1}*SharedItemsImports = 9
+		DJIClient\DJIClient\DJIClient.vcxitems*{ab378d3c-2bb1-41e8-9ef9-befed238f705}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DA43E0C-A205-41FE-A35D-6C8DCB783563}.Debug|x86.ActiveCfg = Debug|Win32
+		{8DA43E0C-A205-41FE-A35D-6C8DCB783563}.Debug|x86.Build.0 = Debug|Win32
+		{8DA43E0C-A205-41FE-A35D-6C8DCB783563}.Release|x86.ActiveCfg = Release|Win32
+		{8DA43E0C-A205-41FE-A35D-6C8DCB783563}.Release|x86.Build.0 = Release|Win32
+		{5C822A6E-1A26-4967-A517-72A6452B1642}.Debug|x86.ActiveCfg = Debug|x86
+		{5C822A6E-1A26-4967-A517-72A6452B1642}.Debug|x86.Build.0 = Debug|x86
+		{5C822A6E-1A26-4967-A517-72A6452B1642}.Debug|x86.Deploy.0 = Debug|x86
+		{5C822A6E-1A26-4967-A517-72A6452B1642}.Release|x86.ActiveCfg = Release|x86
+		{5C822A6E-1A26-4967-A517-72A6452B1642}.Release|x86.Build.0 = Release|x86
+		{5C822A6E-1A26-4967-A517-72A6452B1642}.Release|x86.Deploy.0 = Release|x86
+		{AB378D3C-2BB1-41E8-9EF9-BEFED238F705}.Debug|x86.ActiveCfg = Debug|Win32
+		{AB378D3C-2BB1-41E8-9EF9-BEFED238F705}.Debug|x86.Build.0 = Debug|Win32
+		{AB378D3C-2BB1-41E8-9EF9-BEFED238F705}.Release|x86.ActiveCfg = Release|Win32
+		{AB378D3C-2BB1-41E8-9EF9-BEFED238F705}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5E9BD91D-BC69-401C-BA44-AF43289990DA} = {8650FA60-C52D-4782-909C-445F08C472D3}
+		{AB378D3C-2BB1-41E8-9EF9-BEFED238F705} = {8650FA60-C52D-4782-909C-445F08C472D3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D33545E4-0C8B-4BA2-B9CC-CDF354B0332B}
+	EndGlobalSection
+EndGlobal
