@@ -52,6 +52,14 @@ namespace dji
 				m_data_queue.pop();
 			}
 
+			template <class _Predicate> bool wait_for_item(_Predicate _Pred)
+			{
+				std::unique_lock<std::mutex> lk(m_mut);
+				m_data_cond.wait(lk, [this, _Pred] {return (!m_data_queue.empty() && _Pred()); });
+
+				return !m_data_queue.empty();
+			}
+
 			std::shared_ptr<T> wait_and_pop()
 			{
 				std::unique_lock<std::mutex> lk(m_mut);

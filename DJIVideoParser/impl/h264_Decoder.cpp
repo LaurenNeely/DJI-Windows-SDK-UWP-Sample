@@ -255,8 +255,11 @@ void h264_Decoder::DecoderThread()
 
 		static bool is_sps_pps_found = false;
 
-		while (!m_vectorSafeQueue.empty() && !s_stop_flag)
+		while (m_vectorSafeQueue.wait_for_item([this] {return !s_stop_flag; }))
 		{
+			if (s_stop_flag)
+				break;
+
 			std::vector<uint8_t> queue_vector;
 			m_vectorSafeQueue.wait_and_pop(queue_vector);
 

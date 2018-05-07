@@ -39,10 +39,6 @@ static int g_videoFeedId = -1;
 static unsigned int g_videoWidth = 0;
 static unsigned int g_videoHeight = 0;
 
-static long long minFrameRenderTimeMS = (long long)(1000.0 / DJI_FRAME_RATE);
-static std::chrono::steady_clock::time_point g_lastRenderTime;
-
-
 static Microsoft::WRL::ComPtr<ABI::Windows::Storage::Streams::IBufferFactory> g_bitmapBufferFactory;
 static Microsoft::WRL::ComPtr<ABI::Windows::Storage::Streams::IBuffer> g_bitmapBuffer;
 static Microsoft::WRL::ComPtr<Windows::Storage::Streams::IBufferByteAccess> g_bitmapBufferAccess;
@@ -275,7 +271,9 @@ extern "C" void DJI_CLIENT_API SetGimbleAngle(double pitch, double yaw = 0, doub
 }
 #pragma endregion FlightControls
 
+
 #pragma region Video
+
 static void ParserVideoCallback(unsigned char *data, int width, int height)
 {
 	if (!data || !width || !height)
@@ -349,53 +347,36 @@ static void ParserVideoCallback(unsigned char *data, int width, int height)
 		}
 	}
 
-	concurrency::create_task([now]()
+	if (!g_videoAllocateMutex.try_lock())
 	{
-		if (!g_videoAllocateMutex.try_lock())
-		{
-			return;
-		}
-
-		try
-		{
-			if (g_frameBitmapCallback && g_bitmapBuffer)
-			{
-				g_frameBitmapCallback(g_bitmapBuffer.Get(), g_videoWidth, g_videoHeight, now);
-			}
-
-			if (g_frameDataCallback && g_bitmapBuffer)
-			{
-				byte* pTargetVideoData = nullptr;
-				g_bitmapBufferAccess->Buffer(&pTargetVideoData);
-
-				if (pTargetVideoData)
-				{
-					g_frameDataCallback(pTargetVideoData, g_videoWidth, g_videoHeight, DJI_FRAME_BPP, now);
-				}
-			}
-		}
-		catch (...)
-		{
-			OutputDebugStringW(L"!!! Unknow exception in the frame callback !!!");
-		}
-
-		g_videoAllocateMutex.unlock();
-	});
-
-	long long sleepSime = 0;
-
-	std::chrono::steady_clock::time_point nowAfterFrame = std::chrono::steady_clock::now();
-	auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(nowAfterFrame - g_lastRenderTime);
-
-	if (minFrameRenderTimeMS - elapsed.count() > 0)
-	{
-		sleepSime = (minFrameRenderTimeMS - elapsed.count());
+		return;
 	}
 
-	if (sleepSime > 0)
-		Sleep((DWORD)sleepSime);
+	try
+	{
+		if (g_frameBitmapCallback && g_bitmapBuffer)
+		{
+			g_frameBitmapCallback(g_bitmapBuffer.Get(), g_videoWidth, g_videoHeight, now);
+		}
 
-	g_lastRenderTime = std::chrono::steady_clock::now();
+		if (g_frameDataCallback && g_bitmapBuffer)
+		{
+			byte* pTargetVideoData = nullptr;
+			g_bitmapBufferAccess->Buffer(&pTargetVideoData);
+
+			if (pTargetVideoData)
+			{
+				g_frameDataCallback(pTargetVideoData, g_videoWidth, g_videoHeight, DJI_FRAME_BPP, now);
+			}
+		}
+	}
+	catch (...)
+	{
+		OutputDebugStringW(L"!!! Unknow exception in the frame callback !!!");
+	}
+
+	g_videoAllocateMutex.unlock();
+
 }
 
 

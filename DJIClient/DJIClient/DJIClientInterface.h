@@ -25,22 +25,3 @@ extern "C" typedef void(__stdcall *AttitudeCallback)(double pitch, double yaw, d
 extern "C" typedef void(__stdcall *VelocityCallback)(double X, double Y, double Z);
 
 
-__inline HRESULT CreateMediaBuffer(
-	DWORD width,
-	DWORD height,
-	IMFMediaBuffer **ppBuffer)
-{
-	HRESULT hr = S_OK;
-
-	IMFMediaBuffer *pBuffer = NULL;
-
-	hr = MFCreate2DMediaBuffer(width, height, MFVideoFormat_ARGB32.Data1, /*fBottomUp*/false, &pBuffer);
-
-	if (SUCCEEDED(hr))
-	{
-		*ppBuffer = pBuffer;
-		(*ppBuffer)->AddRef();
-	}
-
-	return hr;
-}
