@@ -45,6 +45,11 @@ DJIWindowsSDK/
 3. Build, debug, deploy, enjoy! 
 
 ## *Platform notes ##
-DJI SDK currently supports only x86 architecture. It also has a lot of "classic" Win32 dependencies, so the app package requres Full Trust capability (using [Desktop Bridge](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-extensions)), and only runs on Windows Desktop. 
+Current alpha version of DJI SDK only supports x86 architecture on Windows desktop. It has a few "classic" Win32 dependencies, so the app package requres Full Trust capability (using [Desktop Bridge](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-extensions)), and only runs on Windows 10 Desktop. 
+Video decoding component doesn't leverage hatdware acceleration yet. 
+
+The sample C# app uses the SDK via an additional DJIClient DLL and PInvoke calls. 
+
+Full Universal Windows Platform support and other improvements are coming later towards the release of DJI Windows SDK. 
 
 
