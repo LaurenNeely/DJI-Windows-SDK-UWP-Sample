@@ -5,42 +5,45 @@ using Windows.Media;
 using Windows.Storage;
 using Windows.AI.MachineLearning.Preview;
 
-// ApplesAndBananas
+// InkShapes
 
-namespace ApplesAndBananas
+namespace InkShapes
 {
-    public sealed class ApplesAndBananasModelInput
+    public sealed class InkShapesModelInput
     {
         public VideoFrame data { get; set; }
     }
 
-    public sealed class ApplesAndBananasModelOutput
+    public sealed class InkShapesModelOutput
     {
         public IList<string> classLabel { get; set; }
         public IDictionary<string, float> loss { get; set; }
-        public ApplesAndBananasModelOutput()
+        public InkShapesModelOutput(int lossCount)
         {
             this.classLabel = new List<string>();
-            this.loss = new Dictionary<string, float>()
+            this.loss = new Dictionary<string, float>();
+            for (int i = 0; i < lossCount; i++)
             {
-                { "Apple", float.NaN },
-                { "Banana", float.NaN },
-            };
+                this.loss.Add(i.ToString(), float.NaN);
+            }
         }
     }
 
-    public sealed class ApplesAndBananasModel
+    public sealed class InkShapesModel
     {
+        private int _lossCount;
+
         private LearningModelPreview learningModel;
-        public static async Task<ApplesAndBananasModel> CreateApplesAndBananasModel(StorageFile file)
+        public static async Task<InkShapesModel> CreateInkShapesModel(StorageFile file, int lossCount)
         {
             LearningModelPreview learningModel = await LearningModelPreview.LoadModelFromStorageFileAsync(file);
-            ApplesAndBananasModel model = new ApplesAndBananasModel();
+            InkShapesModel model = new InkShapesModel();
             model.learningModel = learningModel;
+            model._lossCount = lossCount;
             return model;
         }
-        public async Task<ApplesAndBananasModelOutput> EvaluateAsync(ApplesAndBananasModelInput input) {
-            ApplesAndBananasModelOutput output = new ApplesAndBananasModelOutput();
+        public async Task<InkShapesModelOutput> EvaluateAsync(InkShapesModelInput input) {
+            InkShapesModelOutput output = new InkShapesModelOutput(_lossCount);
             LearningModelBindingPreview binding = new LearningModelBindingPreview(learningModel);
             binding.Bind("data", input.data);
             binding.Bind("classLabel", output.classLabel);

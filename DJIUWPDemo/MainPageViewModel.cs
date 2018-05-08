@@ -20,7 +20,7 @@ namespace DJIDemo
         private CoreDispatcher Dispatcher;
         private DJIClient djiClient;
 
-        private ApplesAndBananas.ApplesAndBananasModel mlModel = null;
+        private InkShapes.InkShapesModel mlModel = null;
         private Task runProcessTask = null;
 
  
@@ -263,11 +263,11 @@ namespace DJIDemo
             {
                 if (mlModel == null)
                 {
-                    var file = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///WinML/ApplesAndBananas.onnx"));
-                    mlModel = await ApplesAndBananas.ApplesAndBananasModel.CreateApplesAndBananasModel(file);
+                    var file = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///WinML/InkShapesModel.onnx"));
+                    mlModel = await InkShapes.InkShapesModel.CreateInkShapesModel(file, 21);
                 }
 
-                ApplesAndBananas.ApplesAndBananasModelInput input = new ApplesAndBananas.ApplesAndBananasModelInput();
+                InkShapes.InkShapesModelInput input = new InkShapes.InkShapesModelInput();
                 input.data = frame;
                 var output = await mlModel.EvaluateAsync(input);
 
@@ -275,19 +275,16 @@ namespace DJIDemo
                 {
 
                     string recognizedTag = output.classLabel.First();
-                    string recognizedTagToShow = recognizedTag;
                     float recognitionConfidence = output.loss.OrderByDescending(kv => kv.Value).First().Value;
 
                     if (recognitionConfidence < 0.15f)
                     {
-                        recognizedTagToShow = string.Empty;
+                        RecognizedObjectText = string.Empty;
                     }
-
-                    if (recognitionConfidence > 0.6f || recognitionConfidence < 0.15f)
+                    else if (recognitionConfidence > 0.3f)
                     {
                         Debug.WriteLine("ML model evaluation result: {0} ({1})", recognizedTag, recognitionConfidence);
-                        recognizedObjectText = string.IsNullOrEmpty(recognizedTagToShow) ? string.Empty :
-                            "Recognized: " + recognizedTagToShow;
+                        RecognizedObjectText = "Recognized: " + recognizedTag;
                     }
                 }
 

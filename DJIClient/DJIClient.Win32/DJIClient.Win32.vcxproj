@@ -74,7 +74,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\..\ThirdParties\dji-windows-sdk\lib;..\..\ThirdParties\pthread-win32\bin\Win32_MSVC2015.Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\DJIWindowsSDK\dji-windows-sdk\lib;..\..\ThirdParties\pthread-win32\bin\Win32_MSVC2015.Release</AdditionalLibraryDirectories>
       <ModuleDefinitionFile>..\DJIClient\DJIClient.def</ModuleDefinitionFile>
       <AdditionalDependencies>windows_sdk.lib;pthread_dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
