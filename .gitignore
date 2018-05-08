@@ -112,8 +112,6 @@ vc140.pdb
 
 ThirdParties/
 
-!DJIWindowsSDK/dji-windows-sdk/bin/
-!ThirdParties/pthread-win32/bin/
 
 # Cert file
 !*.pfx
