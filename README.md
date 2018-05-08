@@ -5,7 +5,9 @@ This sample is a [Universal Windows Platform](https://docs.microsoft.com/en-us/w
 * Aircraft control 
 * Camera gimbal control 
 
-The app leverages XAML-based UI and Windows ML, running inference (evaluation) on top of aircraft's video feed using [Windows ML](https://docs.microsoft.com/en-us/windows/uwp/machine-learning/) model. 
+The app leverages XAML-based UI and Windows ML, running inference (evaluation) on top of aircraft's video feed using a [Windows ML](https://docs.microsoft.com/en-us/windows/uwp/machine-learning/) model. 
+
+![Screenshot](https://user-images.githubusercontent.com/4735184/39741103-4605c4fc-524d-11e8-92d4-0ff200b501ca.jpg)
 
 ## Windows ML ##  
 This sample uses a WinML model called InkShapes. It's made by [Nikola Metulev](https://github.com/nmetulev) and trained in [Custom Vision](https://www.customvision.ai/) on simple black-and-white hand-drawn pictures representing one of 21 categories, such as house, flower, stick figure, bike, and others.
