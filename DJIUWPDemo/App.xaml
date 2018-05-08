@@ -16,7 +16,7 @@
                       BackgroundSource="Backdrop"
                       FallbackColor="{ThemeResource SystemAccentColor}"
                       TintColor="{ThemeResource SystemAccentColor}"
-                      TintOpacity="0.8" />
+                      TintOpacity="0.5" />
 
         <Style TargetType="Slider">
             <Setter Property="Background" Value="{StaticResource BorderBrush}" />

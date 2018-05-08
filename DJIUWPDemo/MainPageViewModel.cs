@@ -194,7 +194,7 @@ namespace DJIDemo
         private void DjiClient_VelocityChanged(double X, double Y, double Z)
         {
             double airSpeed = X * X + Y * Y + Z * Z;
-            airSpeed = Math.Abs(airSpeed) > 0.01 ? Math.Sqrt(airSpeed) : 0;
+            airSpeed = Math.Abs(airSpeed) > 0.0001 ? Math.Sqrt(airSpeed) : 0;
             Velocity = airSpeed;            
         }
 

@@ -20,10 +20,8 @@
     <PackageCertificateKeyFile>DJIUWPDemo_TemporaryKey.pfx</PackageCertificateKeyFile>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
-    <AppxPackageDir>\\scratch2\scratch\Herricks\Build2018\WinDrone</AppxPackageDir>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86</AppxBundlePlatforms>
-    <AppInstallerUri>\\scratch2\scratch\Herricks\Build2018\WinDrone</AppInstallerUri>
     <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
     <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
     <PackageCertificateThumbprint>37EAC2060E437D37A1DE0D623A4CBFEE9F1BB5B0</PackageCertificateThumbprint>
@@ -92,26 +90,26 @@
     <Content Include="..\$(Configuration)\$(PlatformName)\DJIVideoParser.pdb">
       <Link>DJIVideoParser.pdb</Link>
     </Content>
-    <Content Include="..\ThirdParties\dlls\avcodec-56.dll">
+    <Content Include="..\ThirdParties\dependencies\avcodec-56.dll">
       <Link>avcodec-56.dll</Link>
     </Content>
-    <Content Include="..\ThirdParties\dlls\avformat-56.dll">
+    <Content Include="..\ThirdParties\dependencies\avformat-56.dll">
       <Link>avformat-56.dll</Link>
     </Content>
-    <Content Include="..\ThirdParties\dlls\avutil-54.dll">
+    <Content Include="..\ThirdParties\dependencies\avutil-54.dll">
       <Link>avutil-54.dll</Link>
     </Content>
-    <Content Include="..\ThirdParties\dlls\swscale-3.dll">
+    <Content Include="..\ThirdParties\dependencies\swscale-3.dll">
       <Link>swscale-3.dll</Link>
     </Content>
-    <Content Include="..\ThirdParties\dlls\windows_sdk.dll">
-      <Link>windows_sdk.dll</Link>
-    </Content>
-    <Content Include="..\ThirdParties\dlls\libcrypto-1_1.dll">
+    <Content Include="..\ThirdParties\dependencies\libcrypto-1_1.dll">
       <Link>libcrypto-1_1.dll</Link>
     </Content>
-    <Content Include="..\ThirdParties\dlls\pthread_dll.dll">
+    <Content Include="..\ThirdParties\dependencies\pthread_dll.dll">
       <Link>pthread_dll.dll</Link>
+    </Content>
+    <Content Include="..\DJIWindowsSDK\dji-windows-sdk\bin\windows_sdk.dll">
+      <Link>windows_sdk.dll</Link>
     </Content>
     <Content Include="Assets\joystick_left.png" />
     <Content Include="Assets\joystick_right.png" />

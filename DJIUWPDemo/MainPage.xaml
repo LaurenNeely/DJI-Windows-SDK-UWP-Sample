@@ -24,32 +24,8 @@
     
     <Grid>
         <Image VerticalAlignment="Center" HorizontalAlignment="Center" Source="Assets/LogoBW.png" Height="600" Margin="0,80,0,0"/>
-        <Image x:Name="videoElement" Stretch="UniformToFill" Source="{Binding VideoSource}" />
- 
-        <Rectangle Width="400" 
-                   Margin="0,80,0,0"
-                   HorizontalAlignment="Left"
-                   IsHitTestVisible="False">
-            <Rectangle.Fill>
-                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
-                    <GradientStop Offset="0" Color="#B3000000" />
-                    <GradientStop Offset="0.5" Color="#08000000" />
-                    <GradientStop Offset="0.8" Color="Transparent" />
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle Width="400" 
-                   Margin="0,80,0,0"
-                   HorizontalAlignment="Right"
-                   IsHitTestVisible="False">
-            <Rectangle.Fill>
-                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
-                    <GradientStop Offset="1" Color="#B3000000" />
-                    <GradientStop Offset="0.5" Color="#08000000" />
-                    <GradientStop Offset="0.2" Color="Transparent" />
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
+        <Image x:Name="videoElement" Stretch="UniformToFill" Source="{Binding VideoSource}" Visibility="{Binding ControlsVisible}"/>
+
 
         <Grid VerticalAlignment="Top" 
               Background="{StaticResource InAppDarkAcrylicBrush}" Opacity="1"

@@ -16,12 +16,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DJIClient", "DJIClient\DJIC
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DJIClient.Win32", "DJIClient\DJIClient.Win32\DJIClient.Win32.vcxproj", "{AB378D3C-2BB1-41E8-9EF9-BEFED238F705}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DJISDK", "DJISDK\DJISDK.vcxitems", "{9E4B60B8-52F7-4641-9008-5B8F4C0DBAA1}"
-EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		DJIClient\DJIClient\DJIClient.vcxitems*{5e9bd91d-bc69-401c-ba44-af43289990da}*SharedItemsImports = 9
-		DJISDK\DJISDK.vcxitems*{9e4b60b8-52f7-4641-9008-5b8f4c0dbaa1}*SharedItemsImports = 9
 		DJIClient\DJIClient\DJIClient.vcxitems*{ab378d3c-2bb1-41e8-9ef9-befed238f705}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

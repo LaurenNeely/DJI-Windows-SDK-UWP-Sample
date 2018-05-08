@@ -6,8 +6,8 @@
 #include <Windows.ui.xaml.media.imaging.h>
 #include <Robuffer.h>
 #include <chrono>
-#include <ppl.h>
-#include <ppltasks.h>
+#include "SearialTaskRunner.h"
+
 
 using namespace ABI::Windows::UI::Xaml::Media::Imaging;
 
@@ -45,6 +45,7 @@ static Microsoft::WRL::ComPtr<Windows::Storage::Streams::IBufferByteAccess> g_bi
 
 static VideoFrameBufferCallback g_frameBitmapCallback;
 static VideoFrameDataCallback g_frameDataCallback;
+static SerialTaskRunner g_frameTaskRunner;
 
 static dji::windowssdk::VirtualRemoteController* g_virtualRemoteController = nullptr;
 static VideoDataCallback g_videoDataCallback = nullptr;
@@ -274,6 +275,7 @@ extern "C" void DJI_CLIENT_API SetGimbleAngle(double pitch, double yaw = 0, doub
 
 #pragma region Video
 
+
 static void ParserVideoCallback(unsigned char *data, int width, int height)
 {
 	if (!data || !width || !height)
@@ -347,36 +349,38 @@ static void ParserVideoCallback(unsigned char *data, int width, int height)
 		}
 	}
 
-	if (!g_videoAllocateMutex.try_lock())
+	g_frameTaskRunner.RunTask([now]()
 	{
-		return;
-	}
-
-	try
-	{
-		if (g_frameBitmapCallback && g_bitmapBuffer)
+		if (!g_videoAllocateMutex.try_lock())
 		{
-			g_frameBitmapCallback(g_bitmapBuffer.Get(), g_videoWidth, g_videoHeight, now);
+			return;
 		}
 
-		if (g_frameDataCallback && g_bitmapBuffer)
+		try
 		{
-			byte* pTargetVideoData = nullptr;
-			g_bitmapBufferAccess->Buffer(&pTargetVideoData);
-
-			if (pTargetVideoData)
+			if (g_frameBitmapCallback && g_bitmapBuffer)
 			{
-				g_frameDataCallback(pTargetVideoData, g_videoWidth, g_videoHeight, DJI_FRAME_BPP, now);
+				g_frameBitmapCallback(g_bitmapBuffer.Get(), g_videoWidth, g_videoHeight, now);
+			}
+
+			if (g_frameDataCallback && g_bitmapBuffer)
+			{
+				byte* pTargetVideoData = nullptr;
+				g_bitmapBufferAccess->Buffer(&pTargetVideoData);
+
+				if (pTargetVideoData)
+				{
+					g_frameDataCallback(pTargetVideoData, g_videoWidth, g_videoHeight, DJI_FRAME_BPP, now);
+				}
 			}
 		}
-	}
-	catch (...)
-	{
-		OutputDebugStringW(L"!!! Unknow exception in the frame callback !!!");
-	}
+		catch (...)
+		{
+			OutputDebugStringW(L"!!! Unknow exception in the frame callback !!!");
+		}
 
-	g_videoAllocateMutex.unlock();
-
+		g_videoAllocateMutex.unlock();
+	});
 }
 
 

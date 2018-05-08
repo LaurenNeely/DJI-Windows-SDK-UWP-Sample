@@ -110,7 +110,9 @@ vc140.pdb
 [Oo]bj/
 [Ll]og/
 
-!DJI SDK/bin/
+ThirdParties/
+
+!DJIWindowsSDK/dji-windows-sdk/bin/
 !ThirdParties/pthread-win32/bin/
 
 # Cert file

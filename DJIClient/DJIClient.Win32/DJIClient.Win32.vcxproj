@@ -68,7 +68,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;DJICLIENTWIN32_EXPORTS;VIDEO_PARSER_EXPORT;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\..\DJIVideoParser\include;..\..\ThirdParties\dji-windows-sdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\DJIVideoParser\include;..\..\DJIWindowsSDK\dji-windows-sdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/await /std:c++latest %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -90,7 +90,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;DJICLIENTWIN32_EXPORTS;VIDEO_PARSER_EXPORT;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\..\DJIVideoParser\include;..\..\ThirdParties\dji-windows-sdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\DJIVideoParser\include;..\..\DJIWindowsSDK\dji-windows-sdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/await /std:c++latest %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -98,7 +98,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\..\ThirdParties\dji-windows-sdk\lib;..\..\ThirdParties\pthread-win32\bin\Win32_MSVC2015.Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\DJIWindowsSDK\dji-windows-sdk\lib;..\..\ThirdParties\pthread-win32\bin\Win32_MSVC2015.Release</AdditionalLibraryDirectories>
       <ModuleDefinitionFile>..\DJIClient\DJIClient.def</ModuleDefinitionFile>
       <AdditionalDependencies>windows_sdk.lib;pthread_dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>

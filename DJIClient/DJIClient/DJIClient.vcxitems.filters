@@ -10,6 +10,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)targetver.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)DJIClientInterface.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SearialTaskRunner.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)DJIClient.def" />

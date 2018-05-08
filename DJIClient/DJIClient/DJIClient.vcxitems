@@ -24,6 +24,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)DJIClientInterface.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)djisdk.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SearialTaskRunner.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)targetver.h" />
   </ItemGroup>
   <ItemGroup>
