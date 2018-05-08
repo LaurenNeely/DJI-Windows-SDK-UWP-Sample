@@ -3,6 +3,7 @@
 This sample is a [Universal Windows Platform](https://docs.microsoft.com/en-us/windows/uwp/get-started/universal-application-platform-guide)* app that demostrates DJI Windows SDK capabilities: 
 * Aircraft's camera video feed 
 * Aircraft control 
+* Flight data 
 * Camera gimbal control 
 
 The app leverages XAML-based UI and Windows ML, running inference (evaluation) on top of aircraft's video feed using a [Windows ML](https://docs.microsoft.com/en-us/windows/uwp/machine-learning/) model. 
